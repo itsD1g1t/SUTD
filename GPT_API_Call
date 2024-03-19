@@ -1,0 +1,25 @@
+# Import the os package
+import os
+
+# Import the openai package
+from openai import OpenAI
+
+client = OpenAI(api_key="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")
+
+from openai import OpenAI
+
+response = client.chat.completions.create(model="gpt-3.5-turbo",
+messages=[{"role": "system", "content": 'SPECIFY HOW THE AI ASSISTANT SHOULD BEHAVE'},
+          {"role": "user", "content": 'SPECIFY WANT YOU WANT THE AI ASSISTANT TO SAY'}
+])
+
+while True:
+    system_msg = 'You are a helpful assistant.'
+    user_msg = input("You: ")
+    if user_msg == 'end': # type "end" to end session system
+        break
+    else:
+        response = client.chat.completions.create(model="gpt-3.5-turbo",
+                                        messages=[{"role": "system", "content": system_msg},
+                                         {"role": "user", "content": user_msg}])
+        print("reponse ,", response.choices[0].message.content )
