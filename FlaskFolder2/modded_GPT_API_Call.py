@@ -2,8 +2,8 @@
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key="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")
-    # You have have to change this key now that it is uploaded onto github
+client = OpenAI(api_key="")
+    # Insert the API key between the "" above. Make sure to remove the key before uploading this file to GitHub
 
 
 def call(sent):
