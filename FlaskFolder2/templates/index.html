@@ -1,0 +1,47 @@
+<!-- Home Page -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Title -->
+    <br>
+    <h1><center>{% block title %} Welcome! Let's Learn Singlish! {% endblock %}</center></h1>
+    <br>
+    <h5><center>Click the button below to begin</center></h5>
+    <br>
+    <br>
+    <div class="form-group">
+        <center><button type="newpost" class="btn btn-primary" onclick="window.location.href = '/create';">New Translaton</button></center>
+    </div>
+    <br>
+    <hr>
+
+
+    {% for post in posts|reverse %}
+       
+        Input: <a href="/edit/{{ post['id'] }}">  {{ post['title'] }} </a>
+        <br>
+        Translation: {{post['content']}}
+        <br>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+<!-- Notes: 
+    Centering:
+        <center></center>
+        whatever is typed inbetween the two centers is centerd
+    Font Size:
+        <h2></h2>
+        1 is the largest, higher number = smaller font
+    Blank line:
+        <br>
+
+
+
+
+
+
+
+
+-->
